@@ -7,15 +7,15 @@ import (
 
 func ArgsList() {
 	if len(os.Args) != 2 {
-		fmt.Println("Usage: seargl --help")
+		fmt.Println("Usage: seargl help")
 		os.Exit(0)
 	}
 
 	switch os.Args[1] {
-	case "--help":
+	case "help":
 		fmt.Println("help")
 		os.Exit(0)
-	default:
+	case "run":
 		StartServer()
 	}
 }
