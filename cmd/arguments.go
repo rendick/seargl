@@ -15,6 +15,9 @@ func ArgsList() {
 	case "help":
 		fmt.Println("help")
 		os.Exit(0)
+	case "test":
+		Test()
+		os.Exit(0)
 	case "run":
 		StartServer()
 	}
