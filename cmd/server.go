@@ -44,8 +44,6 @@ func StartServer() {
 
 	fmt.Printf("Server started.\nhttp://localhost%s\n", port)
 
-	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("./www/style"))))
-
 	h1 := func(w http.ResponseWriter, r *http.Request) {
 		tmpl := template.Must(template.ParseFiles("./www/index.html"))
 		tsw, err := exec.Command("sh", "-c", "tsw ddg "+SearchInput).Output()

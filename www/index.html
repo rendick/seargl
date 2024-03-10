@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="./style/style.css" /> 
-  <title>seargl</title>
-</head>
-<body>
-  <xmp>{{.TswOutput}}</xmp>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>seargl</title>
+  </head>
+  <body>
+    <div class="header">
+      <a href="https://github.com/rendick/seargl" target="_blank" class="logo"
+        >seargl</a
+      >
+      <div class="header-right">
+        <a class="active" href="./index.html">Home</a>
+        <a href="https://github.com/rendick/seargl" target="_blank"
+          >Source code</a
+        >
+      </div>
+    </div>
+
+    <xmp id="output">{{.TswOutput}}</xmp>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var xmpElement = document.getElementById("output");
+        if (xmpElement) {
+          var content = xmpElement.innerHTML;
+          var updatedContent = content
+            .replace(/\[1m/g, "")
+            .replace(/\[0m/g, "");
+          xmpElement.innerHTML = updatedContent;
+        }
+      });
+    </script>
+  </body>
+
+  <style>
+    body {
+      background-color: #242933;
+      color: #ffffff;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .header {
+      overflow: hidden;
+      background-color: #191d24;
+    }
+
+    .header a {
+      float: left;
+      color: #b5bccc;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .header a:hover {
+      background-color: #3b4252;
+      color: #b5bccc;
+    }
+
+    .header a.active {
+      background-color: #3b4252;
+      color: #b5bccc;
+    }
+
+    .header-right {
+      float: right;
+    }
+
+    xmp {
+      color: #b5bccc;
+      background-color: #242933;
+      font-family: "Courier New", Courier, monospace;
+    }
+  </style>
 </html>
