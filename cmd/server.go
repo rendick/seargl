@@ -8,6 +8,7 @@ import (
 	"os/exec"
 	"strings"
 	"text/template"
+	"time"
 )
 
 const (
@@ -15,10 +16,13 @@ const (
 )
 
 var SearchInput string
+var Log string
 
 func StartServer() {
 	fmt.Print("Your input: ")
 	fmt.Scan(&SearchInput)
+	Log = fmt.Sprintf("%s: %s\n", time.Now().Format("2006-01-02 15:04:05"), SearchInput)
+	WriteLogs()
 
 	output_default_browser, err := exec.Command("xdg-settings", "get", "default-web-browser").Output()
 	if err != nil {
