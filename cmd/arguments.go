@@ -20,5 +20,7 @@ func ArgsList() {
 		os.Exit(0)
 	case "run":
 		StartServer()
+	case "cli":
+		CliEngine()
 	}
 }
