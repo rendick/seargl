@@ -41,8 +41,6 @@ func StartServer() {
 	}
 	fmt.Println(string(launchBrowser))
 
-	fmt.Printf("Server started.\nhttp://localhost%s\n", port)
-
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl := template.Must(template.ParseFiles("./www/index.html"))
 
@@ -55,5 +53,6 @@ func StartServer() {
 		tmpl.Execute(w, data)
 	})
 
+	fmt.Printf("Server started.\nhttp://localhost%s\n", port)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
