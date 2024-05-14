@@ -1,16 +1,16 @@
-.PHONY: all
+GOCMD = go
+GOBUILD = $(GOCMD) build
+GOCLEAN = $(GOCMD) clean
+GOGET = $(GOCMD) get
+BINARY_NAME = seargl
 
-all: build 
+all: clean build
 
 build:
-	@go build && echo "Success: Go application built successfully." || (echo "Error: Failed to build the Go application." >&2; exit 1)
-
-.PHONY: clean
+	$(GOBUILD) -o $(BINARY_NAME) -v
 
 clean:
-	go clean
+	$(GOCLEAN)
+	rm -f $(BINARY_NAME)
 
-.PHONY: run
-
-run: all
-	@echo "Success: Script completed successfully."
+.PHONY: all build clean
