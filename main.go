@@ -1,17 +1,27 @@
 package main
 
 import (
-	"log"
-	"os"
+	"fmt"
 	"runtime"
 	"seargl/cmd"
 )
 
 func main() {
-	if runtime.GOOS == "linux" {
-		cmd.ArgsList()
+	os_slice := []string{"linux", "android", "openbsd", "freebsd", "netbsd", "dragonfly", "darwin", "windows"}
+	os_type := false
+
+	for _, str := range os_slice {
+		if str == runtime.GOOS {
+			os_type = true
+			break
+		}
+	}
+
+	if os_type == true {
+		cmd.Args()
+		return
 	} else {
-		log.Fatal("You are not running Linux right now!")
-		os.Exit(0)
+		fmt.Printf("error \n")
+		return
 	}
 }

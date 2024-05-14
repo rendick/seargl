@@ -1,85 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>seargl</title>
-  </head>
-  <body>
+    <link rel="stylesheet" href="./static/style.css" />
+</head>
+
+<body>
     <div class="header">
-      <a href="https://github.com/rendick/seargl" target="_blank" class="logo"
-        >seargl</a
-      >
-      <div class="header-right">
-        <a class="active" href="./index.html">Home</a>
-        <a href="https://github.com/rendick/seargl" target="_blank"
-          >Source code</a
-        >
-      </div>
+        <a href="/" class="logo">SearGL</a>
+        <i>Search Engine</i>
+        <div class="header-right">
+            <a href="https://github.com/rendick/seargl" target="_blank">Source Code</a>
+        </div>
+    </div>
+    <div class="subheader">
+        <a class="active" href="/">Search Engine</a>
+        <a href="/wiki">Wiki</a>
     </div>
 
-     <pre id="output">{{.TswOutput}}</pre>
+    <div class="container">
+        {{ range . }}
+        <a href="{{ . }}">{{ . }}</a> <br> 
+		{{ end }}
+    </div>
+</body>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var xmpElement = document.getElementById("output");
-        if (xmpElement) {
-          var content = xmpElement.innerHTML;
-          var updatedContent = content
-            .replace(/\[1m/g, "")
-            .replace(/\[0m/g, "");
-          xmpElement.innerHTML = updatedContent;
-        }
-      });
-    </script>
-  </body>
+<style>
+</style>
 
-  <style>
-    body {
-      background-color: #242933;
-      color: #ffffff;
-      font-family: "Courier New", Courier, monospace;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .header {
-      overflow: hidden;
-      background-color: #191d24;
-    }
-
-    .header a {
-      float: left;
-      color: #b5bccc;
-      text-align: center;
-      padding: 12px;
-      text-decoration: none;
-      font-size: 18px;
-      line-height: 25px;
-    }
-
-    .header a.logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .header a:hover {
-      background-color: #3b4252;
-      color: #b5bccc;
-    }
-
-    .header a.active {
-      background-color: #3b4252;
-      color: #b5bccc;
-    }
-
-    .header-right {
-      float: right;
-    }
-
-    xmp {
-      color: #b5bccc;
-      background-color: #242933;
-      font-family: "Courier New", Courier, monospace;
-    }
-  </style>
 </html>
